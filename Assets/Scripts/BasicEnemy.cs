@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class BasicEnemy : Enemy
 {
-    private float vectorlength;
+
+    private float constant = 10;
     void Start()
     {
         atack = 1;
@@ -12,14 +13,21 @@ public class BasicEnemy : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
-        moveVector.x = player.position.x - rigidbodyEnemy.position.x;
-        moveVector.y = player.position.y - rigidbodyEnemy.position.y;
-        vectorlength = (float)Math.Sqrt(moveVector.x * moveVector.x + moveVector.y * moveVector.y);
-        moveVector.x = moveVector.x / vectorlength;
-        moveVector.y = moveVector.y / vectorlength;
-        rigidbodyEnemy.velocity = moveVector * speed;
+        MoveBasicEnemy();
+        if (isTargetMouse)
+        {
+            MovetoMouse();
+            if (!Input.GetMouseButton(0))
+            {
+                isTargetMouse = false;
+            }
+        }
+    }
+    private void MoveBasicEnemy()
+    {
+        moveEnemyVector = GetOrtVectorInPosition(player.position, rigidbodyEnemy.position);
+        rigidbodyEnemy.velocity=moveEnemyVector * speed;
     }
 }
