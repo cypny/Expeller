@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     }
     protected Vector2 GetOrtVectorInPosition(Vector3 first,Vector3 second)
     {
-        /// first: точка куда идем , second: от куда 
+        /// first: С‚РѕС‡РєР° РєСѓРґР° РёРґРµРј , second: РѕС‚ РєСѓРґР° 
         var rez = new Vector2();
         rez.x = first.x - second.x;
         rez.y = first.y - second.y;

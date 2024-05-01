@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Base : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other, HealthBar bar)
     {
         if (other.gameObject.tag == "Enemy")
-            //вызыв функции снятия ХП
             Destroy(other.gameObject);
     }
+    
 }
