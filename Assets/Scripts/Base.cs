@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Base : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other, HealthBar bar)
+    public HealthBar health;
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
+        {
+            health.ValueChange(1);
             Destroy(other.gameObject);
+        }
+            
     }
     
 }
