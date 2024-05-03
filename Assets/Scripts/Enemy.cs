@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     protected float health;
     protected float atack;
-    protected bool isTargetMouse=false;
+    protected bool isTargetMouse = false;
     public Transform player;
     private float vectorlength;
     protected Rigidbody2D rigidbodyEnemy;
@@ -21,11 +21,11 @@ public class Enemy : MonoBehaviour
     protected void MovetoMouse()
     {
         var mouse = Input.mousePosition;
-        mouse = cam.ScreenToWorldPoint(mouse);
-        moveToMouseVector =GetOrtVectorInPosition(mouse, rigidbodyEnemy.position);
-        rigidbodyEnemy.velocity += moveToMouseVector*7.5f;
+        mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        moveToMouseVector = GetOrtVectorInPosition(mouse, rigidbodyEnemy.position);
+        rigidbodyEnemy.velocity += moveToMouseVector * 7.5f;
     }
-    protected Vector2 GetOrtVectorInPosition(Vector3 first,Vector3 second)
+    protected Vector2 GetOrtVectorInPosition(Vector3 first, Vector3 second)
     {
         /// first: точка куда идем , second: от куда 
         var rez = new Vector2();
@@ -35,5 +35,9 @@ public class Enemy : MonoBehaviour
         rez.x = rez.x / vectorlength;
         rez.y = rez.y / vectorlength;
         return rez;
+    }
+    public float GetAtk()
+    {
+        return atack;
     }
 }

@@ -7,17 +7,17 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject BasicEnemy;
     public Vector3 origin = Vector3.zero;
     public float radius = 0;
-    void FixedUpdate()
+ 
+    public void SpawnWave(int count)
     {
-        if (Input.anyKey)
+        for(int i = 0; i < count; i++)
         {
-
-            Spawn();
+            SpawnBasicEnemy();
         }
     }
-    private void Spawn()
+    private void SpawnBasicEnemy()
     {
-        Vector3 randomPosition = origin + Random.insideUnitSphere * radius;
+        Vector3 randomPosition = origin+ Random.insideUnitSphere * radius;
         Instantiate(BasicEnemy, randomPosition, Quaternion.identity);
     }
 }
