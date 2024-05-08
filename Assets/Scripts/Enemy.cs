@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     protected Vector2 moveToMouseVector;
     public Camera cam;
     public CoinText CoinText;
-
+    public bool IsSpeedImprovement;
     public void OnMouseDown()
     {
         isTargetMouse = true;
@@ -25,7 +25,10 @@ public class Enemy : MonoBehaviour
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         moveToMouseVector = GetOrtVectorInPosition(mouse, rigidbodyEnemy.position);
         CoinText.Coin += (int)Math.Sqrt(moveToMouseVector.x * moveToMouseVector.x + moveToMouseVector.y * moveToMouseVector.y);
-        rigidbodyEnemy.velocity += moveToMouseVector * 7.5f;
+        if (IsSpeedImprovement)
+            rigidbodyEnemy.velocity += moveToMouseVector * 15;
+        else
+            rigidbodyEnemy.velocity += moveToMouseVector * 7.5f;
     }
     protected Vector2 GetOrtVectorInPosition(Vector3 first, Vector3 second)
     {
