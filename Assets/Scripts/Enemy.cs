@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     protected Vector2 moveEnemyVector;
     protected Vector2 moveToMouseVector;
     public Camera cam;
+    public CoinText CoinText;
 
     public void OnMouseDown()
     {
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         var mouse = Input.mousePosition;
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         moveToMouseVector = GetOrtVectorInPosition(mouse, rigidbodyEnemy.position);
+        CoinText.Coin += (int)Math.Sqrt(moveToMouseVector.x * moveToMouseVector.x + moveToMouseVector.y * moveToMouseVector.y);
         rigidbodyEnemy.velocity += moveToMouseVector * 7.5f;
     }
     protected Vector2 GetOrtVectorInPosition(Vector3 first, Vector3 second)
