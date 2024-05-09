@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         moveToMouseVector = GetOrtVectorInPosition(mouse, rigidbodyEnemy.position);
         CoinText.Coin += (int)Math.Sqrt(moveToMouseVector.x * moveToMouseVector.x + moveToMouseVector.y * moveToMouseVector.y);
         if (IsSpeedImprovement)
-            rigidbodyEnemy.velocity += moveToMouseVector * 15;
+            rigidbodyEnemy.velocity += moveToMouseVector * 100;
         else
             rigidbodyEnemy.velocity += moveToMouseVector * 7.5f;
     }
