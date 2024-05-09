@@ -12,6 +12,7 @@ public class BuyDamage : MonoBehaviour
         if (CoinText.Coin >= Price)
         {
             CoinText.Coin -= Price;
+            GameController.damageClick += 1;
         }
     }
 }

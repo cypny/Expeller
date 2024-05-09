@@ -11,7 +11,7 @@ public class Base : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            healthbar.ValueChange(other.gameObject.GetComponent<Enemy>().GetAtk());
+            healthbar.ValueChange(other.gameObject.GetComponent<Unit>().GetAtk());
             Destroy(other.gameObject);
         }
             

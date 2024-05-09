@@ -1,33 +1,43 @@
 using System;
 using UnityEngine;
 
-public class BasicEnemy : Enemy
+public class wall : Enemy
 {
-
-    private float constant = 10;
+    private float timer1;
+    private float coolDown1 = 0.5f;
     void Start()
     {
+        speed = 1;
         atack = 1;
         health = 10;
-        rigidbodyEnemy = GetComponent<Rigidbody2D>();
+        rigidbodyUnit = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        MoveBasicEnemy();
+        MoveToTarget();
         if (isTargetMouse)
         {
             MovetoMouse();
+            if (timer1 > 0)
+            {
+                timer1 -= Time.deltaTime;
+            }
+            if (timer1 <= 0)
+            {
+                timer1 = coolDown1;
+                TakeDamage(GameController.damageClick);
+            }
             if (!Input.GetMouseButton(0))
             {
                 isTargetMouse = false;
             }
         }
     }
-    private void MoveBasicEnemy()
+    private void MoveToTarget()
     {
-        moveEnemyVector = GetOrtVectorInPosition(player.position, rigidbodyEnemy.position);
-        rigidbodyEnemy.velocity=moveEnemyVector * speed;
+        moveTargetVector = GetOrtVectorInPosition(target.position, rigidbodyUnit.position);
+        rigidbodyUnit.velocity = moveTargetVector * speed;
     }
 }
