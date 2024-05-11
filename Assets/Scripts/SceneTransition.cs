@@ -5,7 +5,6 @@ public class SceneTransition : MonoBehaviour
     public int sceneNumber;
     public Canvas gameCanvas;
     public Canvas storeCanvas;
-    
     public void Transition()
     {
         if (sceneNumber == 1)
@@ -15,6 +14,7 @@ public class SceneTransition : MonoBehaviour
         }
         else
         {
+
             gameCanvas.enabled = true;
             storeCanvas.enabled = false;
         }
