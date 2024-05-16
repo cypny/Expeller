@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Image bar;
-    public float fill;
     
     public void Start()
     {

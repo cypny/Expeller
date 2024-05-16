@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CoinText : MonoBehaviour
 {
     private Text CoinTexts;
-    public static int Coin=10000;
+    public static int Coin;
 
     private void Start()
     {
