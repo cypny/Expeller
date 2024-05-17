@@ -5,23 +5,37 @@ using UnityEngine.UI;
 
 public class SpeedTimer : MonoBehaviour
 {
+    public bool start;
     public float timeStart;
     public Image timerBar;
     public Canvas speedUI;
-    void Start()
+    public void TimerStart()
     {
+        start = true;
         timerBar.fillAmount = 1;
+        Unit.moseSpeed *= 2;
+        speedUI.enabled = true;
     }
 
+    public void TimerStop()
+    {
+        Unit.moseSpeed /= 2;
+        speedUI.enabled = false;
+        start = false;
+        timeStart = 15;
+        timerBar.fillAmount = 1;
+    }
     void Update()
     {
-        timeStart -= Time.deltaTime;
-        timerBar.fillAmount = timeStart / 15;
+        if (start)
+        {
+            timeStart -= Time.deltaTime;
+            timerBar.fillAmount = timeStart / 15;
+        }
+        
         if (timerBar.fillAmount == 0)
         {
-            Unit.moseSpeed /= 2;
-            speedUI.enabled = false;
-            timeStart = 15;
+            TimerStop();
         }
     }
 }

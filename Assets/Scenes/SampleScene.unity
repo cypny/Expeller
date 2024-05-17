@@ -359,9 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Price: 175
-  CoinText: {fileID: 791390778}
-  damageUI: {fileID: 973888940}
-  timerBar: {fileID: 2118812777}
+  DamageTimer: {fileID: 973888941}
 --- !u!114 &275858547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,10 +1138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534458e4dc736fa46b2b1e361839f0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Price: 150
-  CoinText: {fileID: 791390778}
-  speedUI: {fileID: 1796505681}
-  timerBar: {fileID: 600426898}
+  Price: 175
+  SpeedTimer: {fileID: 1796505682}
 --- !u!114 &935331597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,6 +1246,7 @@ GameObject:
   - component: {fileID: 973888940}
   - component: {fileID: 973888939}
   - component: {fileID: 973888938}
+  - component: {fileID: 973888941}
   m_Layer: 5
   m_Name: DamageCanvas
   m_TagString: Untagged
@@ -1340,6 +1337,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &973888941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973888936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae75c48d785c68f409712f440c6ec215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  timeStart: 15
+  timerBar: {fileID: 2118812777}
+  damageUI: {fileID: 973888940}
 --- !u!1 &990224512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,21 +2579,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeStart: 60
   timerText: {fileID: 610695871}
---- !u!114 &1385824874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385824867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dc1f8b30028bd746bc4014408733c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeStart: 15
-  timerBar: {fileID: 600426898}
-  speedUI: {fileID: 1796505681}
 --- !u!114 &1385824875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2593,6 +2591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae75c48d785c68f409712f440c6ec215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  start: 0
   timeStart: 15
   timerBar: {fileID: 2118812777}
   damageUI: {fileID: 973888940}
@@ -3218,6 +3217,7 @@ GameObject:
   - component: {fileID: 1796505681}
   - component: {fileID: 1796505680}
   - component: {fileID: 1796505679}
+  - component: {fileID: 1796505682}
   m_Layer: 5
   m_Name: SpeedCanvas
   m_TagString: Untagged
@@ -3308,6 +3308,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1796505682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796505677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc1f8b30028bd746bc4014408733c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  timeStart: 15
+  timerBar: {fileID: 600426898}
+  speedUI: {fileID: 1796505681}
 --- !u!1 &1822696390
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,9 +3869,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6883681323301933448, guid: 02b39be9e2dc2b244bab8c5688c0e5b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1385824871}
-    - targetCorrespondingSourceObject: {fileID: 6883681323301933448, guid: 02b39be9e2dc2b244bab8c5688c0e5b5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1385824874}
     - targetCorrespondingSourceObject: {fileID: 6883681323301933448, guid: 02b39be9e2dc2b244bab8c5688c0e5b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1385824875}

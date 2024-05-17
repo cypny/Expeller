@@ -13,6 +13,7 @@ public class BuyDamage : MonoBehaviour
     [SerializeField] private AudioSource notEnoughMoneySound;
 
 
+    public DamageTimer DamageTimer;
     public void Buy()
     {
         if (CoinText.Coin < Price)
@@ -27,5 +28,6 @@ public class BuyDamage : MonoBehaviour
         GameController.damageClick += 1;
         damageUI.enabled = true;
         timerBar.fillAmount = 1;
+        DamageTimer.TimerStart();
     }
 }

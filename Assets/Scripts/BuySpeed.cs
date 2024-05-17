@@ -13,6 +13,7 @@ public class BuySpeed : MonoBehaviour
     [SerializeField] private AudioSource notEnoughMoneySound;
 
 
+    public SpeedTimer SpeedTimer;
     public void Buy()
     {
         if (CoinText.Coin < Price)
@@ -27,6 +28,7 @@ public class BuySpeed : MonoBehaviour
         Unit.moseSpeed *= 2;
         speedUI.enabled = true;
         timerBar.fillAmount = 1;
+        SpeedTimer.TimerStart(); 
     }
 }
 
