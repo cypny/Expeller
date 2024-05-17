@@ -8,10 +8,22 @@ public class BuySpeed : MonoBehaviour
     public CoinText CoinText;
     public Canvas speedUI;
     public Image timerBar;
+    public Text priceText;
+    [SerializeField] private AudioSource buySound;
+    [SerializeField] private AudioSource notEnoughMoneySound;
+
+
     public void Buy()
     {
-        if (CoinText.Coin < Price) return;
+        if (CoinText.Coin < Price)
+        {
+            notEnoughMoneySound.Play();
+            return;
+        }
+        buySound.Play();
         CoinText.Coin -= Price;
+        Price += 75;
+        priceText.text = Price.ToString();
         Unit.moseSpeed *= 2;
         speedUI.enabled = true;
         timerBar.fillAmount = 1;
