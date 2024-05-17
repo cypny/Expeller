@@ -5,14 +5,7 @@ using UnityEngine.UI;
 public class BuyDamage : MonoBehaviour
 {
     public int Price = 175;
-    public CoinText CoinText;
-    public Canvas damageUI;
-    public Image timerBar;
-    public Text priceText;
-    [SerializeField] private AudioSource buySound;
-    [SerializeField] private AudioSource notEnoughMoneySound;
-
-
+    public DamageTimer DamageTimer;
     public void Buy()
     {
         if (CoinText.Coin < Price)
@@ -22,10 +15,6 @@ public class BuyDamage : MonoBehaviour
         }
         buySound.Play();
         CoinText.Coin -= Price;
-        Price += 75;
-        priceText.text = Price.ToString();
-        GameController.damageClick += 1;
-        damageUI.enabled = true;
-        timerBar.fillAmount = 1;
+        DamageTimer.TimerStart();
     }
 }

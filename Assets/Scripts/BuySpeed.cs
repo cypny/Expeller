@@ -5,14 +5,7 @@ using UnityEngine.UI;
 public class BuySpeed : MonoBehaviour
 {
     public int Price = 175;
-    public CoinText CoinText;
-    public Canvas speedUI;
-    public Image timerBar;
-    public Text priceText;
-    [SerializeField] private AudioSource buySound;
-    [SerializeField] private AudioSource notEnoughMoneySound;
-
-
+    public SpeedTimer SpeedTimer;
     public void Buy()
     {
         if (CoinText.Coin < Price)
@@ -22,11 +15,7 @@ public class BuySpeed : MonoBehaviour
         }
         buySound.Play();
         CoinText.Coin -= Price;
-        Price += 75;
-        priceText.text = Price.ToString();
-        Unit.moseSpeed *= 2;
-        speedUI.enabled = true;
-        timerBar.fillAmount = 1;
+        SpeedTimer.TimerStart(); 
     }
 }
 
