@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class wall : Enemy
+public class BasicEnemy : Enemy
 {
     private float timer1;
     private float coolDown1 = 0.5f;

@@ -6,7 +6,7 @@ public class Wall : MonoBehaviour
 {
     private float health = 200;
     private float timer;
-    private float coolDown = 0.5f;
+    private float coolDown = .5f;
     public Sprite spritewall;
     void Start()
     {
