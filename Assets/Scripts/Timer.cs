@@ -6,17 +6,29 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float timeStart = 60;
+    private float time = 60;
+    public bool isRun = false;
     public Text timerText;
-    
+    public GameController controller;
     void Start()
     {
-        timerText.text = timeStart.ToString(CultureInfo.InvariantCulture);
+        timerText.text = time.ToString(CultureInfo.InvariantCulture);
     }
 
     void Update()
     {
-        timeStart -= Time.deltaTime;
-        timerText.text = Mathf.Round(timeStart).ToString(CultureInfo.InvariantCulture);
+        if (isRun)
+        {
+            time -= Time.deltaTime;
+            timerText.text = Mathf.Round(time).ToString(CultureInfo.InvariantCulture);
+            if (time <= 0)
+            {
+                controller.EndWave();
+                time = 60;
+                isRun = false;
+            }
+        }
     }
 }
+
+

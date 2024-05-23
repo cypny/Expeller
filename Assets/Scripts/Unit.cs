@@ -24,7 +24,6 @@ public class Unit : MonoBehaviour
         var mouse = Input.mousePosition;
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         moveToMouseVector = GetOrtVectorInPosition(mouse, rigidbodyUnit.position);
-        CoinText.Coin += (int)Math.Sqrt(moveToMouseVector.x * moveToMouseVector.x + moveToMouseVector.y * moveToMouseVector.y);
         rigidbodyUnit.velocity += moveToMouseVector * moseSpeed;
     }
     protected Vector2 GetOrtVectorInPosition(Vector3 first, Vector3 second)
