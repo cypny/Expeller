@@ -361,10 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Price: 175
-  CoinText: {fileID: 0}
-  damageUI: {fileID: 0}
-  timerBar: {fileID: 0}
-  priceText: {fileID: 0}
+  priceText: {fileID: 1085270368}
   buySound: {fileID: 275858550}
   notEnoughMoneySound: {fileID: 275858551}
   DamageTimer: {fileID: 973888941}
@@ -1538,10 +1535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Price: 175
-  CoinText: {fileID: 0}
-  speedUI: {fileID: 0}
-  timerBar: {fileID: 0}
-  priceText: {fileID: 0}
+  priceText: {fileID: 1166616588}
   buySound: {fileID: 935331600}
   notEnoughMoneySound: {fileID: 935331601}
   SpeedTimer: {fileID: 1796505682}
