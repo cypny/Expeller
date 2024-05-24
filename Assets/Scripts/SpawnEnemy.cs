@@ -23,7 +23,8 @@ public class SpawnEnemy : MonoBehaviour
     }
     public void SpawnWave(int count)
     {
-        for(int i = 0; i < count; i++)
+        GameController.countEnemy = count * 2;
+        for (int i = 0; i < count; i++)
         {
             SpawnBasicEnemy();
             Invoke("SpawnBasicEnemy", 10f);

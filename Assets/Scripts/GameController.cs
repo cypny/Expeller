@@ -5,23 +5,29 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     private static GameObject[] enemys;
-    public static float damageClick = 0;
+    public static float damageClick = 1;
+    public static float speedClick = 7.5f;
     public static int countWave = 1;
+    public static int countEnemy = 1;
     public CoinText CoinText;
     public Timer timer;
     public GameObject ToStore;
     public GameObject StartWaveButton;
     public static bool isBuyWall;
     public static bool isBuyWarrior;
+
     public SpawnEnemy spawner;
     // Start is called before the first frame update
     public void EndWave()
     {
         ClearScene();
         ToStore.SetActive(true);
+        timer.isRun=false;
         StartWaveButton.SetActive(true);
-        CoinText.Coin += 100 * countWave + (countWave+10) * (countWave+10);
-    }
+        CoinText.Coin += 50 * countWave + (countWave+10) * (countWave+10);
+        countEnemy = 1;
+        countWave += 1;
+}
     public void StartWave()
     {
         StartWaveButton.SetActive(false);
@@ -46,6 +52,10 @@ public class GameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(countEnemy <= 0)
+        {
+            EndWave();
+        }
         if (Input.GetKey(KeyCode.Mouse0))
         {
             if (isBuyWall)

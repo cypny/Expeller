@@ -5,11 +5,9 @@ public class Unit : MonoBehaviour
 {
     protected float speed;
     protected float health;
-
     protected float atack;
     protected bool isTargetMouse = false;
     public Transform target;
-    public static float moseSpeed = 7.5f;
     private float vectorlength;
     protected Rigidbody2D rigidbodyUnit;
     protected Vector2 moveTargetVector;
@@ -20,11 +18,10 @@ public class Unit : MonoBehaviour
     }
     protected void MovetoMouse()
     {
-
         var mouse = Input.mousePosition;
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         moveToMouseVector = GetOrtVectorInPosition(mouse, rigidbodyUnit.position);
-        rigidbodyUnit.velocity += moveToMouseVector * moseSpeed;
+        rigidbodyUnit.velocity += moveToMouseVector * GameController.speedClick;
     }
     protected Vector2 GetOrtVectorInPosition(Vector3 first, Vector3 second)
     {
@@ -46,7 +43,11 @@ public class Unit : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            CoinText.Coin += 100;
+            if (this.gameObject.tag == "Enemy")
+            {
+                GameController.countEnemy -= 1;
+            }
+            CoinText.Coin += 50;
             Destroy(gameObject);
         }
     }

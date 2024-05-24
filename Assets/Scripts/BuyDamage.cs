@@ -22,6 +22,6 @@ public class BuyDamage : MonoBehaviour
         CoinText.Coin -= Price;
         Price += 75;
         priceText.text = Price.ToString();
-        DamageTimer.TimerStart();
+        GameController.damageClick += 2;
     }
 }
