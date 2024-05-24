@@ -22,7 +22,7 @@ public class BuySpeed : MonoBehaviour
         CoinText.Coin -= Price;
         Price += 75;
         priceText.text = Price.ToString();
-        SpeedTimer.TimerStart(); 
+        GameController.speedClick += 1;
     }
 }
 

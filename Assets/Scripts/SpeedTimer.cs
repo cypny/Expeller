@@ -13,13 +13,13 @@ public class SpeedTimer : MonoBehaviour
     {
         start = true;
         timerBar.fillAmount = 1;
-        Unit.moseSpeed *= 2;
+        GameController.speedClick*= 2;
         speedUI.enabled = true;
     }
 
     public void TimerStop()
     {
-        Unit.moseSpeed /= 2;
+        GameController.speedClick /= 2;
         speedUI.enabled = false;
         start = false;
         timeStart = 15;
