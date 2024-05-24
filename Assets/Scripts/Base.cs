@@ -15,7 +15,6 @@ public class Base : MonoBehaviour
             isTakeDamage= true;
             Destroy(other.gameObject);
             healthbar.ValueChange(other.gameObject.GetComponent<Unit>().GetAtk());
-            GameController.countEnemy -= 1;
             isTakeDamage=false;
         }
             
