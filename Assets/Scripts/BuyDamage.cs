@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BuyDamage : MonoBehaviour
 {
-    public int Price = 175;
+    public int price = 175;
     public Text priceText;
     [SerializeField] private AudioSource buySound;
     [SerializeField] private AudioSource notEnoughMoneySound;
@@ -13,15 +13,16 @@ public class BuyDamage : MonoBehaviour
     public DamageTimer DamageTimer;
     public void Buy()
     {
-        if (CoinText.Coin < Price || DamageTimer.start == true)
+        if (CoinText.Coin < price || DamageTimer.start == true)
         {
             notEnoughMoneySound.Play();
             return;
         }
         buySound.Play();
-        CoinText.Coin -= Price;
-        Price += 75;
-        priceText.text = Price.ToString();
-        GameController.damageClick += 2;
+        CoinText.Coin -= price;
+        price += 10 + (int)Mathf.Round(price * 1.1f); ;
+
+        priceText.text = price.ToString();
+        GameController.damageClick += 1;
     }
 }
