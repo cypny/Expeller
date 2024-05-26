@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &256567091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256567090}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 1385824869}
@@ -651,6 +651,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &295873893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 295873894}
+  m_Layer: 0
+  m_Name: NotFight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &295873894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295873893}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -34.896683, y: -2.050086, z: -0.2086874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &304271091
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &398144873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2434,6 +2465,7 @@ MonoBehaviour:
   wall: {fileID: 970357648723216015, guid: 9f0173aa632398a48b5d5c67f54f2496, type: 3}
   warrior: {fileID: 6106326603359898598, guid: 322ad775797d324469cdfa02e3b2ab63, type: 3}
   origin: {x: 0, y: 0, z: 0}
+  ort: {x: 1, y: 1, z: 1}
   radius: 20
 --- !u!114 &1109226565
 MonoBehaviour:
@@ -2461,9 +2493,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinText: {fileID: 1142333068}
-  timer: {fileID: 1109226567}
   ToStore: {fileID: 1822696390}
   StartWaveButton: {fileID: 810177185}
+  TimerText: {fileID: 398144872}
   spawner: {fileID: 1109226564}
 --- !u!114 &1109226567
 MonoBehaviour:
@@ -2477,7 +2509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff72559b969a18d4590409c389d77fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRun: 0
   timerText: {fileID: 610695871}
   controller: {fileID: 1109226566}
 --- !u!1 &1142333066
@@ -4987,3 +5018,4 @@ SceneRoots:
   - {fileID: 256567094}
   - {fileID: 1376190275}
   - {fileID: 2066120273}
+  - {fileID: 295873894}

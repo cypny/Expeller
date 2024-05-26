@@ -8,6 +8,7 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject wall;
     public GameObject warrior;
     public Vector3 origin = Vector3.zero;
+    public Vector3 ort = new Vector3(1, 1, 1);
     public float radius = 0;
     public void SpawnWall()
     {
@@ -33,8 +34,9 @@ public class SpawnEnemy : MonoBehaviour
     }
     private void SpawnBasicEnemy()
     {
-       
-        Vector3 randomPosition = origin+ Random.insideUnitSphere * radius;
+        Vector3 randomPosition = origin;
+        randomPosition.x = Random.Range(0.2f, 1) * radius * (Random.Range(0, 2) * 2 - 1);
+        randomPosition.y = Random.Range(0.2f, 1) * radius * (Random.Range(0, 2) * 2 - 1);
         Instantiate(BasicEnemy, randomPosition, Quaternion.identity);
     }
 }

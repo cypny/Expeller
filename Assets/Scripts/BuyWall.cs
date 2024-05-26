@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BuyWall : MonoBehaviour
 {
-    public int Price = 250;
+    public int price = 250;
     public CoinText CoinText;
     public Canvas gameCanvas;
     public Canvas storeCanvas;
@@ -15,12 +15,12 @@ public class BuyWall : MonoBehaviour
 
     public void Buy()
     {
-        if (CoinText.Coin >= Price)
+        if (CoinText.Coin >= price)
         {
             buySound.Play();
-            CoinText.Coin -= Price;
-            Price += 75;
-            priceText.text = Price.ToString();
+            CoinText.Coin -= price;
+            price += 75 + (int)Mathf.Round(price * 1.25f);
+            priceText.text = price.ToString();
             storeCanvas.enabled = false;
             gameCanvas.enabled = true;
             GameController.isBuyWall = true;

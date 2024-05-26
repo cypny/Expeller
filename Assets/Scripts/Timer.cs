@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private float time = 60;
-    public bool isRun = false;
+    private static float time = 60;
+    private static bool isRun = false;
     public Text timerText;
     public GameController controller;
     void Start()
@@ -24,10 +24,21 @@ public class Timer : MonoBehaviour
             if (time <= 0)
             {
                 controller.EndWave();
-                time = 60;
                 isRun = false;
             }
         }
+    }
+    public static void PlayorStop()
+    {
+        isRun = !isRun;
+    }
+    public static void SetTime(float timeset)
+    {
+        time = timeset;
+    }
+    public static float GetTime()
+    {
+        return time;
     }
 }
 
