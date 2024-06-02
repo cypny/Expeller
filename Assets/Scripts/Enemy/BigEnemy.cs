@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public class BasicEnemy : Enemy
+public class BigEnemy : Enemy
 {
     private float timer1;
     private float coolDown1 = 0.5f;
     void Start()
     {
-        speed = 1;
-        atack = 1;
-        health = 10;
+        speed = 0.5f;
+        atack = 5;
+        health = 100;
+        resistanceMose = 0.25f;
         rigidbodyUnit = GetComponent<Rigidbody2D>();
     }
     void FixedUpdate()

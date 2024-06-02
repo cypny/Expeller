@@ -17,7 +17,7 @@ public class Enemy : Unit
             if (timer <= 0)
             {
                 timer = coolDown;
-                TakeDamage(other.gameObject.GetComponent<Unit>().GetAtk());
+                ChangeHealth(-other.gameObject.GetComponent<Unit>().GetAtk());
             }
         }
     }
