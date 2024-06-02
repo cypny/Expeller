@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Warrior : Unit
 {
-    private float timer=5;
-    private float coolDown = 5;
+    private float timerAbility =5;
+    private float timerTakeDamage=1;
+    private float coolDownAbility = 5;
+    private float coolDownTakeDamage = 0.5f;
     private bool ischarge;
     void Start()
     {
@@ -14,6 +16,21 @@ public class Warrior : Unit
         atack = 2;
         health = 200;
         rigidbodyUnit = GetComponent<Rigidbody2D>();
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            if (timerTakeDamage > 0)
+            {
+                timerTakeDamage -= Time.deltaTime;
+            }
+            if (timerTakeDamage <= 0)
+            {
+                timerAbility  = coolDownTakeDamage;
+                ChangeHealth(-other.gameObject.GetComponent<Unit>().GetAtk());
+            }
+        }
     }
     void FixedUpdate()
     {
@@ -26,13 +43,13 @@ public class Warrior : Unit
         {
             MoveToTarget();
         }
-        if (timer > 0)
+        if (timerAbility  > 0)
         {
-            timer -= Time.deltaTime;
+            timerAbility  -= Time.deltaTime;
         }
-        if (timer <= 0)
+        if (timerAbility  <= 0)
         {
-            timer = coolDown;
+            timerAbility  = coolDownAbility;
             FindTarget();
             Charge();
         }
@@ -53,21 +70,12 @@ public class Warrior : Unit
         {
             target = enemys
                 .Select(x => x.transform)
-                .Select(x => ((FindDistant(x), x)))
+                .Select(x => ((GetDistantion(x.position,rigidbodyUnit.position), x)))
                 .OrderBy(x => x.Item1)
                 .Take(1)
                 .Select(x => x.Item2)
                 .ToList()[0];
         }
-    }
-    private float FindDistant(Transform target)
-    {
-        var first = target.position;
-        var second = rigidbodyUnit.position;
-        var rez = new Vector2();
-        rez.x = first.x - second.x;
-        rez.y = first.y - second.y;
-        return (float)Math.Sqrt(rez.x * rez.x + rez.y * rez.y);
     }
     private void MoveToTarget()
     {

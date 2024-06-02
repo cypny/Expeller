@@ -5,7 +5,6 @@ using UnityEngine;
 public class Base : MonoBehaviour
 {
     public HealthBar healthbar;
-    public float health = 200;
     private bool isTakeDamage=false;
     private void OnTriggerEnter2D(Collider2D other)
     {
