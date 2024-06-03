@@ -14,11 +14,4 @@ public class trainingClose : MonoBehaviour
         Time.timeScale = 1;
         menu.SetActive(false);
     }
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Close();
-        }
-    }
 }

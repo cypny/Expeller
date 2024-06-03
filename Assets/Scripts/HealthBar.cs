@@ -23,7 +23,6 @@ public class HealthBar : MonoBehaviour
         if (health <= 0)
         {
             Score.text = GameController.countWave.ToString(CultureInfo.InvariantCulture);
-            Time.timeScale = 0;
             end.SetActive(true);
             Fight.Stop();
             lose.Play();
