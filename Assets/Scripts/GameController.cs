@@ -45,19 +45,32 @@ public class GameController : MonoBehaviour
         switch (countWave)
         {
             case 1:
-                spawner.SpawnWave(2);
+                var wave = new int[] { 2, 0, 0, 0 };
+                spawner.SpawnWave(wave);
                 break;
             case 2:
-                spawner.SpawnWave(5);
+                wave = new int[] { 3, 1, 0, 0 };
+                spawner.SpawnWave(wave);
                 break;
             case 3:
-                spawner.SpawnWave(7);
+                wave = new int[] { 4, 0, 1, 2 };
+                spawner.SpawnWave(wave);
                 break;
             default:
-                spawner.SpawnWave(countWave * 2);
+                wave = GenerateRandomWave();
+                spawner.SpawnWave(wave);
                 break;
         }
         Timer.PlayorStop();
+    }
+    private int[] GenerateRandomWave()
+    {
+        var wave = new int[4];
+        wave[0] = Mathf.CeilToInt(Random.Range(2, countWave*2));
+        wave[1] = Mathf.CeilToInt(Random.Range(0, countWave/2));
+        wave[2] = Mathf.CeilToInt(Random.Range(0, countWave/3));
+        wave[3] = Mathf.CeilToInt(Random.Range(0, countWave/4));
+        return wave;
     }
     private void FixedUpdate()
     {
