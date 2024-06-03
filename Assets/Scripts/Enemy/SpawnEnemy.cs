@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public GameObject BasicEnemy;
-    public GameObject wall;
-    public GameObject warrior;
+    [SerializeField] private GameObject BasicEnemy;
+    [SerializeField] private GameObject wall;
+    [SerializeField] private GameObject warrior;
+    [SerializeField] private GameObject ghostWall;
+    private GameObject currentGustWall;
     public Vector3 origin = Vector3.zero;
     public Vector3 ort = new Vector3(1, 1, 1);
     public float radius = 0;
+    
     public void SpawnWall()
     {
         var position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
