@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -13,6 +11,7 @@ public class Supportenemy : Enemy
     private float radius = 10;
     private float coolDown1 = 0.5f;
     private Transform currenttarget;
+    public GameObject aura;
     void Start()
     {
         currenttarget = target;
@@ -57,11 +56,18 @@ public class Supportenemy : Enemy
     {
         obj.gameObject.GetComponent<Unit>().ChangeHealth(healPower);
         obj.gameObject.GetComponent<Unit>().ChangeSpeed(speedPower);
+        
+    }
+    private void OffAura()
+    {
+        aura.SetActive(false);
     }
     private void UseAbility()
     {
+        aura.SetActive(true);
+        Invoke("OffAura", 0.5f);
         var enemys = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemys.Count() != 0)
+        if (enemys.Count() >1)
         {
             enemys=enemys
                 .Where(x => x != this.gameObject)
@@ -71,7 +77,6 @@ public class Supportenemy : Enemy
             {
                 foreach (var enemy in enemys)
                 {
-                    print(GetDistantion(enemy.transform.position, rigidbodyUnit.position));
                     GiveBuff(enemy);
                 }
             }   
@@ -80,7 +85,7 @@ public class Supportenemy : Enemy
     private void FindTarget()
     {
         var enemys = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemys.Count() != 0)
+        if (enemys.Count() >1)
         {
             currenttarget = enemys
                 .Where(x=>x!=this.gameObject)

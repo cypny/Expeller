@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public static int countWave = 1;
     public static int countEnemy = 1;
     [SerializeField] private CoinText CoinText;
+    [SerializeField] private GameObject ghostWall;
     [SerializeField] private GameObject ToStore;
     [SerializeField] private GameObject StartWaveButton;
     [SerializeField] private GameObject TimerText;
@@ -64,19 +65,24 @@ public class GameController : MonoBehaviour
         {
             EndWave();
         }
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (isBuyWall)
         {
-            if (isBuyWall)
+            if (Input.GetKey(KeyCode.Mouse0))
             {
                 spawner.SpawnWall();
                 isBuyWall = false;
             }
-            if (isBuyWarrior)
+            ghostWall.SetActive(isBuyWall);
+        }
+        if (isBuyWarrior)
+        {
+            if (Input.GetKey(KeyCode.Mouse0))
             {
                 spawner.SpawnWarrior();
                 isBuyWarrior = false;
             }
         }
+       
     }
     private static void ClearScene()
     {

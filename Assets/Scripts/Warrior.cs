@@ -27,7 +27,7 @@ public class Warrior : Unit
             }
             if (timerTakeDamage <= 0)
             {
-                timerAbility  = coolDownTakeDamage;
+                timerTakeDamage = coolDownTakeDamage;
                 ChangeHealth(-other.gameObject.GetComponent<Unit>().GetAtk());
             }
         }
