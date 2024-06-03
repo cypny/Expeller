@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public static int countEnemy = 1;
     [SerializeField] private CoinText CoinText;
     [SerializeField] private GameObject ghostWall;
+    [SerializeField] private GameObject menu;
     [SerializeField] private GameObject ToStore;
     [SerializeField] private GameObject StartWaveButton;
     [SerializeField] private GameObject TimerText;
@@ -75,9 +76,14 @@ public class GameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(countEnemy == 0)
+        if (countEnemy == 0)
         {
             EndWave();
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            menu.SetActive(true);
         }
         if (isBuyWall)
         {

@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Image bar;
     private float health;
+    [SerializeField] private Text Score;
     public float maxhealth;
     [SerializeField] private AudioSource lose;
+    [SerializeField] private AudioSource Fight;
     public GameObject end;
     public void Start()
     {
@@ -21,7 +22,10 @@ public class HealthBar : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            Score.text = GameController.countWave.ToString(CultureInfo.InvariantCulture);
+            Time.timeScale = 0;
             end.SetActive(true);
+            Fight.Stop();
             lose.Play();
             Invoke("End",3);
         }

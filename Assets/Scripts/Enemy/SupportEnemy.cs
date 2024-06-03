@@ -53,9 +53,8 @@ public class Supportenemy : Enemy
     }
     private void GiveBuff(GameObject obj)
     {
-        obj.gameObject.GetComponent<Unit>().ChangeHealth(health);
+        obj.gameObject.GetComponent<Unit>().ChangeHealth(10);
         obj.gameObject.GetComponent<Unit>().ChangeSpeed(speedPower);
-        
     }
     private void OffAura()
     {

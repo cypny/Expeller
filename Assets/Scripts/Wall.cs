@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Wall : MonoBehaviour
 {
     private float health = 200;
-    private float maxhealth = 250;
+    private float maxhealth = 150;
     private float timer;
     private float coolDown = 0.5f;
     private SpriteRenderer img;
