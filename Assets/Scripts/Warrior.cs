@@ -5,9 +5,7 @@ using UnityEngine;
 public class Warrior : Unit
 {
     private float timerAbility =5;
-    private float timerTakeDamage=1;
     private float coolDownAbility = 5;
-    private float coolDownTakeDamage = 0.5f;
     private bool ischarge;
     void Start()
     {
@@ -16,21 +14,6 @@ public class Warrior : Unit
         atack = 2;
         health = 200;
         rigidbodyUnit = GetComponent<Rigidbody2D>();
-    }
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            if (timerTakeDamage > 0)
-            {
-                timerTakeDamage -= Time.deltaTime;
-            }
-            if (timerTakeDamage <= 0)
-            {
-                timerTakeDamage = coolDownTakeDamage;
-                ChangeHealth(-other.gameObject.GetComponent<Unit>().GetAtk());
-            }
-        }
     }
     void FixedUpdate()
     {

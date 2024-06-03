@@ -20,7 +20,8 @@ public class BuySpeed : MonoBehaviour
         }
         buySound.Play();
         CoinText.Coin -= price;
-        price += 10 + (int)Mathf.Round(price * 1.1f);
+        price += (10 + (int)Mathf.Round(price * 1.25f));
+        price = price - price % 5;
         priceText.text = price.ToString();
         GameController.speedClick += 1;
     }
