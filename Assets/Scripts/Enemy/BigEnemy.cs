@@ -7,9 +7,9 @@ public class BigEnemy : Enemy
     void Start()
     {
         speed = 0.5f;
-        atack = 5;
-        health = 100;
-        resistanceMose = 0.25f;
+        atack = 6;
+        health = 125;
+        resistanceMose = 0.5f;
         rigidbodyUnit = GetComponent<Rigidbody2D>();
     }
     void FixedUpdate()

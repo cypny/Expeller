@@ -14,8 +14,8 @@ public class VendingMachine : Unit
     void Start()
     {
         rigidbodyUnit = GetComponent<Rigidbody2D>();
-        health = 100;
-        atack = 1;
+        health = 20;
+        atack = 0;
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -65,7 +65,7 @@ public class VendingMachine : Unit
     private void UseAbility()
     {
         aura.SetActive(true);
-        Invoke("OffAura", 0.65f);
+        Invoke("OffAura", 0.25f);
         var enemys = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemys.Count() != 0)
         {

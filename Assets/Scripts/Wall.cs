@@ -1,16 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Wall : MonoBehaviour
 {
-    private float health = 988;
+    private float health = 200;
+    private float maxhealth = 250;
     private float timer;
     private float coolDown = 0.5f;
-    public Sprite spritewall;
+    private SpriteRenderer img;
+    [SerializeField] private Sprite spritewall1;
+    [SerializeField] private Sprite spritewall2;
+    [SerializeField] private Sprite spritewall3;
     void Start()
     {
-        var spriteRenderer = GetComponent<SpriteRenderer>();
+        health = maxhealth;
+        img = GetComponent<SpriteRenderer>();
     }
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -30,6 +34,18 @@ public class Wall : MonoBehaviour
     private void TakeDamage(float damage)
     {
         health -= damage;
+        if (health <= maxhealth/4*3 && health >= maxhealth/4*2)
+        {
+            img.sprite = spritewall1;
+        }
+        else if (health<= maxhealth / 4 * 2 && health >= maxhealth / 4)
+        {
+            img.sprite = spritewall2;
+        }
+        else if (health <= maxhealth / 4) 
+        {
+            img.sprite = spritewall3;
+        }
         if (health <= 0)
         {
             Destroy(gameObject);

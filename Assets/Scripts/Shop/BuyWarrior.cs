@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +18,8 @@ public class BuyWarrior : MonoBehaviour
         {
             buySound.Play();
             CoinText.Coin -= price;
-            price = 75+ (int)Mathf.Round(price*1.25f);
+            price = 200+ (int)Mathf.Round(price*1.5f);
+            price = price - price % 5;
             priceText.text = price.ToString();
             storeCanvas.enabled = false;
             gameCanvas.enabled = true;

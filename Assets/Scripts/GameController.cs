@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject TimerText;
     public static bool isBuyWall;
     public static bool isBuyWarrior;
+    public static bool isBuyMachine;
     [SerializeField] private AudioSource Fight;
     [SerializeField] private AudioSource notFight;
 
@@ -95,7 +96,14 @@ public class GameController : MonoBehaviour
                 isBuyWarrior = false;
             }
         }
-       
+        if (isBuyMachine)
+        {
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                spawner.SpawnMachine();
+                isBuyMachine = false;
+            }
+        }
     }
     private static void ClearScene()
     {

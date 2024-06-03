@@ -8,10 +8,16 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private GameObject SupportEnemy;
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject warrior;
+    [SerializeField] private GameObject machine;
     public Vector3 origin = Vector3.zero;
     public Vector3 ort = new Vector3(1, 1, 1);
     public float radius = 0;
-    
+    public void SpawnMachine()
+    {
+        var position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        position.z = 0;
+        Instantiate(machine, position, Quaternion.identity);
+    }
     public void SpawnWall()
     {
         var position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -39,12 +45,12 @@ public class SpawnEnemy : MonoBehaviour
             SpawnOneEnemy(SpiralEnemy);
         }
         GameController.countEnemy += count[2];
-        for (int i = 0; i < count[1]; i++)
+        for (int i = 0; i < count[2]; i++)
         {
             SpawnOneEnemy(BigEnemy);
         }
         GameController.countEnemy += count[3];
-        for (int i = 0; i < count[1]; i++)
+        for (int i = 0; i < count[3]; i++)
         {
             SpawnOneEnemy(SupportEnemy);
         }

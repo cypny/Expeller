@@ -4,11 +4,10 @@ using UnityEngine;
 public class Supportenemy : Enemy
 {
     private float timerAbility=1;
-    private float coolDownAbility =5;
+    private float coolDownAbility =3;
     private float timer1;
-    private float healPower =7;
     private float speedPower =0.5f;
-    private float radius = 10;
+    private float radius = 7.4f;
     private float coolDown1 = 0.5f;
     private Transform currenttarget;
     public GameObject aura;
@@ -54,7 +53,7 @@ public class Supportenemy : Enemy
     }
     private void GiveBuff(GameObject obj)
     {
-        obj.gameObject.GetComponent<Unit>().ChangeHealth(healPower);
+        obj.gameObject.GetComponent<Unit>().ChangeHealth(health);
         obj.gameObject.GetComponent<Unit>().ChangeSpeed(speedPower);
         
     }
